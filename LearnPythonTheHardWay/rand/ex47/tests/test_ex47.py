@@ -12,8 +12,8 @@ def test_room_paths():
     south = Room("South", "Test room in the south.")
 
     center.add_paths({'north':north, 'south':south})
-    assert_equal(center.go('north'), north)
-    assert_equal(center.go('south'), south)
+    assert center.go('north') == north
+    assert center.go('south') == south
 
 def test_map():
     start = Room("Start", "You can go west and down a hole.")
@@ -24,6 +24,6 @@ def test_map():
     west.add_paths({'east':start})
     down.add_paths({'up': start})
 
-    assert_equal(start.go('west'), west)
-    assert_equal(start.go('west').go('east'), start)
-    assert_equal(start.go('down').go('up'), start)
+    assert start.go('west') == west
+    assert start.go('west').go('east') == start
+    assert start.go('down').go('up') == start
